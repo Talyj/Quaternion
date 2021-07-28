@@ -24,8 +24,8 @@ public class Rotation : MonoBehaviour
     {
         oldVerts = gameObject.GetComponent<MeshFilter>().mesh.vertices;
 
-        Quat quatRot = Quaternion.QuatCalc(new Vector3(10, 1, 1), speedRotation);
-        Mat4x4 matRot = Quaternion.QuatToMat4x4(quatRot);
+        Quater quaterRot = Quaternion.QuatCalc(new Vector3(10, 1, 1), speedRotation);
+        Mat4x4 matRot = Quaternion.QuatToMat4x4(quaterRot);
         int i = 0;
 
         while (i < oldVerts.Length)

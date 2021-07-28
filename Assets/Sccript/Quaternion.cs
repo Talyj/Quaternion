@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public struct Quat
+public struct Quater
 {
     public Vector4 dir;
 }
@@ -21,9 +21,9 @@ public struct Mat4x4
 
 public static class Quaternion
 {
-    public static Quat AdditionQuat(Quat quat1, Quat quat2)
+    public static Quater AdditionQuat(Quater quat1, Quater quat2)
     {
-        Quat quat3;
+        Quater quat3;
         quat3.dir.w = quat1.dir.w + quat2.dir.w;
         quat3.dir.x = quat1.dir.x + quat2.dir.x;
         quat3.dir.y = quat1.dir.y + quat2.dir.y;
@@ -31,9 +31,9 @@ public static class Quaternion
         return quat3;
     }
 
-    public static Quat ConjQuat(Quat quat1)
+    public static Quater ConjQuat(Quater quat1)
     {
-        Quat quat2;
+        Quater quat2;
         quat2.dir.w = quat1.dir.w;
         quat2.dir.x = -quat1.dir.x;
         quat2.dir.y = -quat1.dir.y;
@@ -41,9 +41,9 @@ public static class Quaternion
         return quat2;
     }
     
-    public static Quat MultQuat(Quat quat1, Quat quat2)
+    public static Quater MultQuat(Quater quat1, Quater quat2)
     {
-        Quat quat3;
+        Quater quat3;
         // (aa' − bb' − cc' − dd')
         quat3.dir.w = (quat1.dir.w * quat2.dir.w) - (quat1.dir.x * quat2.dir.x) - (quat1.dir.y * quat2.dir.y) - (quat1.dir.z * quat2.dir.z);
         // (ab' + ba' + cd' − dc')
@@ -62,12 +62,12 @@ public static class Quaternion
        return Mathf.Sqrt(result);
     }
 
-    public static float ScalQuat(Quat quat1, Quat quat2)
+    public static float ScalQuat(Quater quat1, Quater quat2)
     {
         return quat1.dir.w * quat2.dir.w + quat1.dir.x * quat2.dir.x + (quat1.dir.y * quat2.dir.y) + (quat1.dir.z * quat2.dir.z);
     }
 
-    public static Mat4x4 QuatToMat4x4(Quat quat1)
+    public static Mat4x4 QuatToMat4x4(Quater quat1)
     {
         float w = quat1.dir.w;
         float x = quat1.dir.x;
@@ -99,10 +99,10 @@ public static class Quaternion
         return matrice;
     }
 
-    public static Quat QuatCalc(Vector3 u,float theta)
+    public static Quater QuatCalc(Vector3 u,float theta)
     {
        float norme;
-       Quat quat;
+       Quater quater;
        norme = Norme(u);
        u.x = u.x / norme;
        u.y = u.y / norme;
@@ -110,11 +110,11 @@ public static class Quaternion
 
        theta = theta * (Mathf.PI / 180);
 
-       quat.dir.w = Mathf.Cos(theta / 2);
-       quat.dir.x = u.x *Mathf.Sin(theta / 2);
-       quat.dir.y = u.y * Mathf.Sin(theta / 2);
-       quat.dir.z = u.z * Mathf.Sin(theta / 2);
+       quater.dir.w = Mathf.Cos(theta / 2);
+       quater.dir.x = u.x *Mathf.Sin(theta / 2);
+       quater.dir.y = u.y * Mathf.Sin(theta / 2);
+       quater.dir.z = u.z * Mathf.Sin(theta / 2);
 
-       return quat;
+       return quater;
     }
 }
