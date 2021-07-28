@@ -4,7 +4,7 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 
-public class Quaternionrotation : MonoBehaviour
+public class Rotation : MonoBehaviour
 {
     private float speedRotation;
     private Vector3[] origVerts;
