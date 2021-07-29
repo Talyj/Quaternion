@@ -81,36 +81,32 @@ public static class Quaternion
 
     public static Quater AdditionQuat(Quater quat1, Quater quat2)
     {
-        Quater quat3;
-        quat3.dir.w = quat1.dir.w + quat2.dir.w;
-        quat3.dir.x = quat1.dir.x + quat2.dir.x;
-        quat3.dir.y = quat1.dir.y + quat2.dir.y;
-        quat3.dir.z = quat1.dir.z + quat2.dir.z;
-        return quat3;
+        Quater quatRes;
+        quatRes.dir.w = quat1.dir.w + quat2.dir.w;
+        quatRes.dir.x = quat1.dir.x + quat2.dir.x;
+        quatRes.dir.y = quat1.dir.y + quat2.dir.y;
+        quatRes.dir.z = quat1.dir.z + quat2.dir.z;
+        return quatRes;
     }
 
     public static Quater ConjQuat(Quater quat1)
     {
-        Quater quat2;
-        quat2.dir.w = quat1.dir.w;
-        quat2.dir.x = -quat1.dir.x;
-        quat2.dir.y = -quat1.dir.y;
-        quat2.dir.z = -quat1.dir.z;
-        return quat2;
+        Quater quatRes;
+        quatRes.dir.w = quat1.dir.w;
+        quatRes.dir.x = -quat1.dir.x;
+        quatRes.dir.y = -quat1.dir.y;
+        quatRes.dir.z = -quat1.dir.z;
+        return quatRes;
     }
     
     public static Quater MultQuat(Quater quat1, Quater quat2)
     {
-        Quater quat3;
-        // (aa' − bb' − cc' − dd')
-        quat3.dir.w = (quat1.dir.w * quat2.dir.w) - (quat1.dir.x * quat2.dir.x) - (quat1.dir.y * quat2.dir.y) - (quat1.dir.z * quat2.dir.z);
-        // (ab' + ba' + cd' − dc')
-        quat3.dir.x = (quat1.dir.w * quat2.dir.x) + (quat1.dir.x * quat2.dir.w) + (quat1.dir.y * quat2.dir.z) - (quat1.dir.z * quat2.dir.y);
-        // (ac' − bd' + ca' + db')
-        quat3.dir.y = (quat1.dir.w * quat2.dir.y) - (quat1.dir.x * quat2.dir.z) + (quat1.dir.y * quat2.dir.w) + (quat1.dir.z * quat2.dir.x);
-        // (ad' + bc' − cb' + da')
-        quat3.dir.z = (quat1.dir.w * quat2.dir.z) + (quat1.dir.x * quat2.dir.y) - (quat1.dir.y * quat2.dir.x) + (quat1.dir.z * quat2.dir.w);
-        return quat3;
+        Quater quatRes;
+        quatRes.dir.w = (quat1.dir.w * quat2.dir.w) - (quat1.dir.x * quat2.dir.x) - (quat1.dir.y * quat2.dir.y) - (quat1.dir.z * quat2.dir.z);
+        quatRes.dir.x = (quat1.dir.w * quat2.dir.x) + (quat1.dir.x * quat2.dir.w) + (quat1.dir.y * quat2.dir.z) - (quat1.dir.z * quat2.dir.y);
+        quatRes.dir.y = (quat1.dir.w * quat2.dir.y) - (quat1.dir.x * quat2.dir.z) + (quat1.dir.y * quat2.dir.w) + (quat1.dir.z * quat2.dir.x);
+        quatRes.dir.z = (quat1.dir.w * quat2.dir.z) + (quat1.dir.x * quat2.dir.y) - (quat1.dir.y * quat2.dir.x) + (quat1.dir.z * quat2.dir.w);
+        return quatRes;
     }
 
     public static float ScalQuat(Quater quat1, Quater quat2)
