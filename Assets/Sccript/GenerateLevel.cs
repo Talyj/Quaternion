@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GenerateLevel : MonoBehaviour
 {
@@ -25,6 +26,15 @@ public class GenerateLevel : MonoBehaviour
     void Update()
     {
         Generate();
+        QuitApplication();
+    }
+
+    void QuitApplication()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
     }
 
     void Generate()
